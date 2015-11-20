@@ -1,39 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-         xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.fabric8.examples</groupId>
   <artifactId>example-camel-cdi</artifactId>
   <version>1.0-SNAPSHOT</version>
   <name>Example : Camel CDI</name>
   <description>Camel route using CDI in a standalone Java Container</description>
-  <properties>
-    <fabric8.label.container>java</fabric8.label.container>
-    <fabric8.iconRef>icons/camel.svg</fabric8.iconRef>
-    <version.maven-bundle-plugin>2.3.7</version.maven-bundle-plugin>
-    <docker.registryPrefix></docker.registryPrefix>
-
-    <skipTests>false</skipTests>
-    <testExclusionPattern>**/*KubernetesTest.java</testExclusionPattern>
-
-    <jube.version>2.0.47</jube.version>
-    <fabric8.version>2.0.47</fabric8.version>
-    <dockerimage>${docker.registryPrefix}fabric8/${project.artifactId}:${project.version}</dockerimage>
-    <docker.image>${dockerimage}</docker.image>
-    <maven.compiler.target>1.7</maven.compiler.target>
-    <docker.from>fabric8/java</docker.from>
-    <docker.port.container.jolokia>8778</docker.port.container.jolokia>
-    <fabric8.label.group>quickstarts</fabric8.label.group>
-    <camel.version>2.15.2</camel.version>
-    <docker.env.MAIN>org.apache.camel.cdi.Main</docker.env.MAIN>
-    <version.compiler.plugin>2.3.1</version.compiler.plugin>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <docker.assemblyDescriptorRef>artifact-with-dependencies</docker.assemblyDescriptorRef>
-    <maven.compiler.source>1.7</maven.compiler.source>
-    <docker.maven.plugin.version>0.11.3</docker.maven.plugin.version>
-  </properties>
-
+  <scm>
+    <connection>scm:git:git@github.com:fabric8io/example-camel-cdi.git</connection>
+    <developerConnection>scm:git:git@github.com:fabric8io/example-camel-cdi.git</developerConnection>
+    <tag>example-camel-cdi-1.0.0</tag>
+    <url>http://github.com/fabric8io/example-camel-cdi/</url>
+  </scm>
   <distributionManagement>
     <repository>
       <id>oss-sonatype-staging</id>
@@ -46,14 +25,31 @@
       <url>https://oss.sonatype.org/content/repositories/snapshots</url>
     </snapshotRepository>
   </distributionManagement>
-
-  <scm>
-    <connection>scm:git:git@github.com:fabric8io/example-camel-cdi.git</connection>
-    <developerConnection>scm:git:git@github.com:fabric8io/example-camel-cdi.git</developerConnection>
-    <url>http://github.com/fabric8io/example-camel-cdi/</url>
-    <tag>example-camel-cdi-1.0.0</tag>
-  </scm>
-
+  <properties>
+    <camel.version>2.15.2</camel.version>
+    <docker.assemblyDescriptorRef>artifact-with-dependencies</docker.assemblyDescriptorRef>
+    <docker.env.MAIN>org.apache.camel.cdi.Main</docker.env.MAIN>
+    <docker.from>docker.io/fabric8/java-jboss-openjdk8-jdk:1.0.10</docker.from>
+    <docker.image>fabric8/${project.artifactId}:${project.version}</docker.image>
+    <docker.maven.plugin.version>0.11.3</docker.maven.plugin.version>
+    <docker.port.container.jolokia>8778</docker.port.container.jolokia>
+    <docker.registryPrefix></docker.registryPrefix>
+    <dockerimage>${docker.registryPrefix}fabric8/${project.artifactId}:${project.version}</dockerimage>
+    <fabric8.iconRef>icons/camel</fabric8.iconRef>
+    <fabric8.label.container>java</fabric8.label.container>
+    <fabric8.label.group>quickstarts</fabric8.label.group>
+    <fabric8.label.project>example-cdi-https</fabric8.label.project>
+    <fabric8.label.version>${project.version}</fabric8.label.version>
+    <fabric8.version>2.0.47</fabric8.version>
+    <jube.version>2.0.47</jube.version>
+    <maven.compiler.source>1.7</maven.compiler.source>
+    <maven.compiler.target>1.7</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <skipTests>false</skipTests>
+    <testExclusionPattern>**/*KubernetesTest.java</testExclusionPattern>
+    <version.compiler.plugin>2.3.1</version.compiler.plugin>
+    <version.maven-bundle-plugin>2.3.7</version.maven-bundle-plugin>
+  </properties>
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -108,8 +104,6 @@
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-netty4-http</artifactId>
     </dependency>
-
-    <!-- testing -->
     <dependency>
       <groupId>io.fabric8</groupId>
       <artifactId>arquillian-fabric8</artifactId>
@@ -205,7 +199,6 @@
         </configuration>
       </plugin>
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>2.17</version>
         <inherited>true</inherited>
@@ -262,9 +255,7 @@
     </profile>
     <profile>
       <id>jube</id>
-      <activation>
-        <activeByDefault>false</activeByDefault>
-      </activation>
+      <activation />
       <build>
         <plugins>
           <plugin>
@@ -293,6 +284,31 @@
       <id>ts.kube</id>
       <properties>
         <testExclusionPattern>**/*ExcludedTest.java</testExclusionPattern>
+      </properties>
+    </profile>
+    <profile>
+      <id>f8-build</id>
+      <build>
+        <defaultGoal>clean install docker:build fabric8:json</defaultGoal>
+      </build>
+    </profile>
+    <profile>
+      <id>f8-deploy</id>
+      <build>
+        <defaultGoal>clean install docker:build docker:push fabric8:json fabric8:apply</defaultGoal>
+      </build>
+      <properties>
+        <fabric8.recreate>true</fabric8.recreate>
+        <fabric8.imagePullPolicySnapshot>Always</fabric8.imagePullPolicySnapshot>
+      </properties>
+    </profile>
+    <profile>
+      <id>f8-local-deploy</id>
+      <build>
+        <defaultGoal>clean install docker:build fabric8:json fabric8:apply</defaultGoal>
+      </build>
+      <properties>
+        <fabric8.recreate>true</fabric8.recreate>
       </properties>
     </profile>
   </profiles>

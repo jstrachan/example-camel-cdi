@@ -1,0 +1,14 @@
+---
+pipeline: "maven/CanaryReleaseStageAndApprovePromote.groovy"
+buildName: "example-cdi-https"
+codeReview: false
+links:
+  Job: "http://jenkins.vagrant.f8/job/example-cdi-https"
+  Production: "http://fabric8.vagrant.f8/kubernetes/pods?namespace=example-cdi-https-prod"
+  Staging: "http://fabric8.vagrant.f8/kubernetes/pods?namespace=example-cdi-https-staging"
+  Testing: "http://fabric8.vagrant.f8/kubernetes/pods?namespace=example-cdi-https-testing"
+environments:
+  Testing: "example-cdi-https-testing"
+  Staging: "example-cdi-https-staging"
+  Production: "example-cdi-https-prod"
+useLocalFlow: true
