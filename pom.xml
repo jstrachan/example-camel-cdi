@@ -38,7 +38,7 @@
     <fabric8.iconRef>icons/camel</fabric8.iconRef>
     <fabric8.label.container>java</fabric8.label.container>
     <fabric8.label.group>quickstarts</fabric8.label.group>
-    <fabric8.label.project>example-cdi-https</fabric8.label.project>
+    <fabric8.label.project>mythingy</fabric8.label.project>
     <fabric8.label.version>${project.version}</fabric8.label.version>
     <fabric8.version>2.0.47</fabric8.version>
     <jube.version>2.0.47</jube.version>
@@ -63,6 +63,12 @@
         <groupId>org.apache.camel</groupId>
         <artifactId>camel-netty4-http</artifactId>
         <version>${camel.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.fabric8</groupId>
+        <artifactId>fabric8-arquillian</artifactId>
+        <version>2.2.63</version>
+        <scope>test</scope>
       </dependency>
     </dependencies>
   </dependencyManagement>
@@ -122,6 +128,11 @@
     <dependency>
       <groupId>org.jboss.shrinkwrap.resolver</groupId>
       <artifactId>shrinkwrap-resolver-impl-maven</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8</groupId>
+      <artifactId>fabric8-arquillian</artifactId>
       <scope>test</scope>
     </dependency>
   </dependencies>
