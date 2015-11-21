@@ -1,9 +1,9 @@
 ---
 pipeline: "maven/CanaryReleaseStageAndApprovePromote.groovy"
-buildName: "thingy"
+buildName: "camel-https"
 codeReview: false
 links:
-  Job: "http://jenkins.vagrant.f8/job/thingy"
+  Job: "http://jenkins.vagrant.f8/job/camel-https"
   Production: "http://fabric8.vagrant.f8/kubernetes/pods?namespace=example-cdi-https-prod"
   Staging: "http://fabric8.vagrant.f8/kubernetes/pods?namespace=example-cdi-https-staging"
   Testing: "http://fabric8.vagrant.f8/kubernetes/pods?namespace=example-cdi-https-testing"
