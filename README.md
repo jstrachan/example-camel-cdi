@@ -1,4 +1,4 @@
-# Camel CDI QuickStart Thingy
+# Camel CDI QuickStart Thingy2
 
 This example shows how to work with Camel in the Java Container using CDI to configure components,
 endpoints and beans.
