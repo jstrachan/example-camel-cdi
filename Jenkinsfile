@@ -1,5 +1,5 @@
 node ('swarm'){
-  git 'https://github.com/jstrachan/example-camel-cdi.git'
+  git 'git@github.com:jstrachan/example-camel-cdi.git'
 
   // lets install maven onto the path
   withEnv(["PATH+MAVEN=${tool 'maven-3.3.1'}/bin"]) {
