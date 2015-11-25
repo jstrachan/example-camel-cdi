@@ -38,7 +38,7 @@
     <fabric8.iconRef>icons/camel</fabric8.iconRef>
     <fabric8.label.container>java</fabric8.label.container>
     <fabric8.label.group>quickstarts</fabric8.label.group>
-    <fabric8.label.project>mycamelthingy</fabric8.label.project>
+    <fabric8.label.project>example-camel-cdi</fabric8.label.project>
     <fabric8.label.version>${project.version}</fabric8.label.version>
     <fabric8.version>2.0.47</fabric8.version>
     <jube.version>2.0.47</jube.version>
