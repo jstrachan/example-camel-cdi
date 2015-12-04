@@ -1,4 +1,4 @@
-# Camel CDI QuickStart Thingy14
+# Camel CDI QuickStart WOW AWESOME
 
 This example shows how to work with Camel in the Java Container using CDI to configure components,
 endpoints and beans.
